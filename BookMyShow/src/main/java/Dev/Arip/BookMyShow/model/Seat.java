@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "BMS_SEAT")
 public class Seat extends BaseModel{
     private String seatNo;
     @Enumerated(EnumType.STRING)
