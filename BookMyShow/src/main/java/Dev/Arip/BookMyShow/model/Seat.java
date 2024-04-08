@@ -2,22 +2,32 @@ package Dev.Arip.BookMyShow.model;
 
 import Dev.Arip.BookMyShow.model.constant.SeatStatus;
 import Dev.Arip.BookMyShow.model.constant.SeatType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "BMS_SEAT")
+@Entity
 public class Seat extends BaseModel{
+    private int seatRow;
+    private int seatCol;
     private String seatNo;
     @Enumerated(EnumType.STRING)
     private SeatType seatType;
-    private int row;
-    private int col;
     @Enumerated(EnumType.STRING)
     private SeatStatus seatStatus;
+
+    public Seat(int seatRow, int seatCol, String seatNo, SeatType seatType, SeatStatus seatStatus) {
+        this.seatRow = seatRow;
+        this.seatCol = seatCol;
+        this.seatNo = seatNo;
+        this.seatType = seatType;
+        this.seatStatus = seatStatus;
+    }
+
+    public Seat() {
+    }
+
 
 }

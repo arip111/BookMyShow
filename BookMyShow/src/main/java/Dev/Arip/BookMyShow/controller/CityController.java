@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CityController {
     @Autowired
@@ -44,5 +46,12 @@ public class CityController {
     {
         boolean isDeleted = cityService.deleteCity(cityId);
         return ResponseEntity.ok(isDeleted);
+    }
+
+    @GetMapping("/city")
+    public ResponseEntity getAllCities()
+    {
+        List<City> cities = cityService.getAllCities();
+        return ResponseEntity.ok(cities);
     }
 }

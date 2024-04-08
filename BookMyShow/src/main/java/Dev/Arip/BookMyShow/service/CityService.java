@@ -5,6 +5,8 @@ import Dev.Arip.BookMyShow.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CityService {
 
@@ -35,5 +37,10 @@ public class CityService {
     public City saveCity(City city)
     {
         return cityRepository.save(city);
+    }
+
+    public List<City> getAllCities()
+    {
+        return cityRepository.findAll();
     }
 }
